@@ -4,7 +4,7 @@ import NeuralNetwork
 import numpy as np
 import sys
 
-threshold = 0.1
+threshold = 0.05
 alpha = 0.005
 
 

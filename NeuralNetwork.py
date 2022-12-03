@@ -12,7 +12,7 @@ class NeuralNetwork():
     '''
     Neural network
     default values:
-     - iterations = 100
+     - iterations = 150
      - hidden layer nodes = 250
     '''
 
@@ -216,6 +216,7 @@ class NeuralNetwork():
                 if self.check_if_error_surpass_threshold(threshold):
                     stop = False
                     self.back_propagation(alpha)
+                    print("back")
 
             self.save_data()  # save the data for every iteration
 
