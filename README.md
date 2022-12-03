@@ -11,7 +11,7 @@ It uses the following technologies:
 - NumPy
 - Jupyter Notebook
 
-# Setup
+## Setup
 To train a new neural network:
 ```sh
 python main.py start
@@ -25,4 +25,4 @@ To test the neural network. Training started needed. (W1.txt, W2.txt in tmp/ fol
 python main.py test
 ```
 
-You can run the "test" command by creating a <i>tmp/</i> folder and use a set of W1.txt and W2.txt in the training folder. For the "continue" command you need the numIterations.txt with a number in the first line of the file. For instance, if you want to continue a training, you can take my try1 W1.txt and W2.txt files and paste in the tmp/ folder. Create a numIterations.txt file with the number <i>50</i>. (In my try1, the number of iterations was 50). Training might not make the neural network to perform better.
+You can run the `python main.py test` command by creating a <i>tmp/</i> folder and use a set of W1.txt and W2.txt in the training folder. For the `python main.py test` command you need the numIterations.txt with a number in the first line of the file. For instance, if you want to continue a training, you can take my try1 W1.txt and W2.txt files and paste in the tmp/ folder. Create a numIterations.txt file with the number <i>50</i>. (In my try1, the number of iterations was 50). Training might not make the neural network to perform better.
