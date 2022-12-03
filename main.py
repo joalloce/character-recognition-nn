@@ -12,7 +12,7 @@ def op_continue():
     # load samples from test_samples/ and train_samples/
     train_X, train_Y, test_X, test_Y = utils.load()
 
-    nn = NeuralNetwork.NeuralNetwork(layers=[2500, 250, 10], iterations=100)
+    nn = NeuralNetwork.NeuralNetwork(layers=[2500, 250, 10], iterations=150)
     nn.initialize()
 
     # tmp/ folder needed with the files W1.txt, W2.txt and numIteration.txt
@@ -31,7 +31,7 @@ def op_start():
     # load samples from test_samples/ and train_samples/
     train_X, train_Y, test_X, test_Y = utils.load()
 
-    nn = NeuralNetwork.NeuralNetwork(layers=[2500, 250, 10], iterations=100)
+    nn = NeuralNetwork.NeuralNetwork(layers=[2500, 250, 10], iterations=150)
     nn.initialize()
     nn.init_weights_randomly()
 
@@ -44,7 +44,7 @@ def op_test():
     # load samples from test_samples/ and train_samples/
     train_X, train_Y, test_X, test_Y = utils.load()
 
-    nn = NeuralNetwork.NeuralNetwork(layers=[2500, 250, 10], iterations=100)
+    nn = NeuralNetwork.NeuralNetwork(layers=[2500, 250, 10], iterations=150)
     nn.initialize()
 
     # tmp/ folder needed with the files W1.txt and W2.txt
@@ -56,7 +56,7 @@ def op_test():
 
 def main():
     if len(sys.argv) == 1:
-        print("start: start a new training")
+        print("start: start a new training.")
         print("continue: continue training from the last iteration done.")
         print("Require the weights on folder tmp/ and the numIteration.txt with the number of the last iteration.")
         print("test: test the NN. Require the weights on folder tmp/.")

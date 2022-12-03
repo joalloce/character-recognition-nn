@@ -3,4 +3,4 @@ layers=[2500, 250, 10]
 threshold = 0.1
 alpha = 0.005
 
-Predicted 86 from 100 tests
+Predicted 86 of 100 tests

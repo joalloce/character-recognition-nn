@@ -16,7 +16,7 @@ class NeuralNetwork():
      - hidden layer nodes = 250
     '''
 
-    def __init__(self, layers=[2500, 250, 10], iterations=100) -> None:
+    def __init__(self, layers=[2500, 250, 10], iterations=150) -> None:
         self.iterations = iterations
         '''
         [0] input layer size
@@ -38,7 +38,7 @@ class NeuralNetwork():
 
     def initialize(self):
         '''
-        Initialize all the layers at 0
+        Initialize all the layers at 0.
         '''
         self.params["b1"] = np.zeros((self.layers[1]))
         self.params["W1"] = np.zeros((self.layers[0], self.layers[1]))
@@ -77,14 +77,14 @@ class NeuralNetwork():
 
     def clear_weights(self):
         '''
-        Set weights to zeros
+        Set weights to zeros.
         '''
         self.params["W1"] = np.zeros((self.layers[0], self.layers[1]))
         self.params["W2"] = np.zeros((self.layers[1], self.layers[2]))
 
     def compute_b2(self):
         '''
-        Calculate the second bias
+        Calculate the second bias.
         '''
         for i in range(self.layers[2]):
             Z = self.compute_net_sum_b2(i)
@@ -92,7 +92,7 @@ class NeuralNetwork():
 
     def compute_net_sum_b2(self, position):
         '''
-        Net sum of second bias. Depends on the second weights and the first bias
+        Net sum of second bias. Depends on the second weights and the first bias.
         '''
         sum = 0.0
         for i in range(self.layers[1]):
@@ -102,7 +102,7 @@ class NeuralNetwork():
 
     def compute_b1(self):
         '''
-        Calculate the first bias
+        Calculate the first bias.
         '''
         for i in range(self.layers[1]):
             Z = self.compute_net_sum_b1(i)
@@ -110,7 +110,7 @@ class NeuralNetwork():
 
     def compute_net_sum_b1(self, position):
         '''
-        Net sum of first bias. Depends on the first weights and the input
+        Net sum of first bias. Depends on the first weights and the input.
         '''
         sum = 0.0
         for i in range(self.layers[0]):
@@ -127,14 +127,14 @@ class NeuralNetwork():
 
     def forward_propagation(self):
         '''
-        Compute both first and second bias
+        Compute both first and second bias.
         '''
         self.compute_b1()
         self.compute_b2()
 
     def compute_error(self):
         '''
-        Calculate the error of each output
+        Calculate the error of each output.
         '''
         self.error = 0
         for i in range(self.layers[2]):
@@ -151,7 +151,7 @@ class NeuralNetwork():
 
     def adjust_W1(self, alpha):
         '''
-        Compute the first weights. Depends on second bias factor, alpha and input
+        Compute the first weights. Depends on second bias factor, alpha and input.
         '''
         for i in range(self.layers[1]):
             sum = self.sum_b2_adjust_factor(i)
@@ -162,7 +162,7 @@ class NeuralNetwork():
 
     def sum_b2_adjust_factor(self, position):
         '''
-        Sum the second bias factor. Depends on second weights
+        Sum the second bias factor. Depends on second weights.
         '''
         sum = 0
         for i in range(self.layers[2]):
@@ -173,7 +173,7 @@ class NeuralNetwork():
 
     def adjust_W2(self, alpha):
         '''
-        Compute the second weights. Depends on second bias factor, alpha and first bias
+        Compute the second weights. Depends on second bias factor, alpha and first bias.
         '''
         for i in range(self.layers[2]):
             b2_factor = self.get_b2_adjust_factor(i)
@@ -183,20 +183,20 @@ class NeuralNetwork():
 
     def get_b2_adjust_factor(self, position):
         '''
-        Calculate the second bias factor
+        Calculate the second bias factor.
         '''
         return (self.Y[position] - self.params["b2"][position]) * self.params["b2"][position] * (1 - self.params["b2"][position])
 
     def back_propagation(self, alpha):
         '''
-        Adjust the first and the second weights
+        Adjust the first and the second weights.
         '''
         self.adjust_W1(alpha)
         self.adjust_W2(alpha)
 
     def fit(self, train_X, train_Y, threshold, alpha):
         '''
-        Fit function
+        Fit function.
         '''
         stop = False
         while stop == False and self.numIterations < self.iterations:
@@ -214,7 +214,6 @@ class NeuralNetwork():
 
                 # perform an ajustment if error surpass threshold
                 if self.check_if_error_surpass_threshold(threshold):
-                    print("back")  # DELETE
                     stop = False
                     self.back_propagation(alpha)
 
@@ -222,7 +221,7 @@ class NeuralNetwork():
 
     def save_data(self):
         '''
-        Save the weights and the number of iterations
+        Save the weights and the number of iterations.
         '''
         fileManager.save_weights(
             self.params["W1"], self.params["W2"], self.layers)
@@ -230,7 +229,7 @@ class NeuralNetwork():
 
     def predict(self, X):
         '''
-        Make a prediction
+        Make a prediction.
         '''
         self.X = X
         self.forward_propagation()  # performs a foward propagation
@@ -239,7 +238,7 @@ class NeuralNetwork():
 
     def accuracy(self, Y):
         '''
-        Calculate the accuracy of the output and the expected Y
+        Calculate the accuracy of the output and the expected Y.
         '''
         sum = 0.0
         for i in range(self.layers[2]):
@@ -249,7 +248,7 @@ class NeuralNetwork():
 
     def test(self, test_X, test_Y):
         '''
-        Test all the test samples. Calculates metrics
+        Test all the test samples. Calculates metrics.
         '''
         match_counter = 0  # number of tests correctly predicted
         sum = 0.0  # sum of accuracies
@@ -263,7 +262,7 @@ class NeuralNetwork():
             expected = utils.get_letter_from_index(index)  # letter expected
 
             if expected == prediction:
-                match_counter += 1
+                match_counter += 1  # sum when matches
 
             acc = self.accuracy(test_Y[i])  # calculate the accuracy
             sum += acc

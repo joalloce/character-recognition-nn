@@ -9,7 +9,7 @@ letters = ["B", "C", "D", "F", "G", "H", "J", "K", "L", "M"]
 def get_samples(origin):
     '''
     Get the samples from directory origin.
-    It takes the letters from the dict letters
+    It takes the letters from the dict letters.
     Returns an array of samples.
     '''
     samples = []
@@ -25,9 +25,9 @@ def get_samples(origin):
 
 def get_letter_samples(origin, letter):
     '''
-    Get samples from a letter
-    The sample file names should start with the letter 
-    returns the samples of a letter
+    Get samples from a letter.
+    The sample file names should start with the letter.
+    returns the samples of a letter.
     '''
     samples = []
     os.chdir(origin)
@@ -44,7 +44,7 @@ def get_letter_samples(origin, letter):
 
 def get_weights(layers=[2500, 250, 10]):
     '''
-    Read the files W1.txt and W2.txt at tmp/ to get the weights
+    Read the files W1.txt and W2.txt at tmp/ to get the weights.
     '''
 
     W1 = np.zeros((layers[0], layers[1]))
@@ -120,7 +120,7 @@ def save_weights(W1, W2, layers=[2500, 250, 10]):
 
 def save_numIterations(num):
     '''
-    Save the number of iterations in a file named numIterations.txt at directory tmp
+    Save the number of iterations in a file named numIterations.txt at directory tmp/
     '''
     currentDirectory = os.getcwd()
     path = os.path.join(currentDirectory, "tmp")
@@ -140,7 +140,7 @@ def save_numIterations(num):
 
 def getIterations():
     '''
-    Read the files numIterations.txt at tmp/ to get the number of iterations
+    Read the files numIterations.txt at tmp/ to get the number of iterations.
     '''
     currentDirectory = os.getcwd()  # get the current directory path
     path = os.path.join(currentDirectory, "tmp")

@@ -6,7 +6,7 @@ letters = ["B", "C", "D", "F", "G", "H", "J", "K", "L", "M"]
 
 def split_data_and_labels(samples):
     '''
-    Split the samples in labels and data
+    Split the samples in labels and data.
     The label is the last element in each array.
     '''
     data = samples[:, :-1]
@@ -32,7 +32,7 @@ def print_sample(sample):
 
 def reshape_output(Y):
     '''
-    Reshape the output in an array 
+    Reshape the output in an array.
     '''
     categories = []
     length = len(letters)
@@ -49,7 +49,7 @@ def reshape_output(Y):
 
 def get_letter_from_index(index):
     '''
-    Return the letter from the index
+    Return the letter from the index.
     '''
     if index >= 0 and index < len(letters):
         return letters[index]
@@ -59,7 +59,7 @@ def get_letter_from_index(index):
 
 def load():
     '''
-    Load the samples
+    Load the samples.
     '''
     test_samples = fileManager.get_samples("./test_samples")
     train_samples = fileManager.get_samples("./train_samples")
