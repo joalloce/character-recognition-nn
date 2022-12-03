@@ -47,7 +47,7 @@ class NeuralNetwork():
 
     def init_weights_randomly(self):
         '''
-        Initialize weights with random between -0.3 to 0.3. no zeros allowed.
+        Initialize weights with random between -0.3 to 0.3. No zeros allowed.
         '''
         self.numIterations = 0  # zero
         self.error = 0  # zero
@@ -196,7 +196,7 @@ class NeuralNetwork():
 
     def fit(self, train_X, train_Y, threshold, alpha):
         '''
-        Fit method
+        Fit function
         '''
         stop = False
         while stop == False and self.numIterations < self.iterations:
@@ -205,17 +205,16 @@ class NeuralNetwork():
             # train with all the samples
             for i in range(len(train_X)):
                 print("Iteration", self.numIterations, "sample", i+1)
-                # print(train_Y[i]) #DELETE
                 # set the input and output
                 self.X = train_X[i]
                 self.Y = train_Y[i]
 
                 self.forward_propagation()
                 self.compute_error()
-                # print(self.params["b2"]) #DELETE
 
                 # perform an ajustment if error surpass threshold
                 if self.check_if_error_surpass_threshold(threshold):
+                    print("back")  # DELETE
                     stop = False
                     self.back_propagation(alpha)
 
@@ -235,6 +234,7 @@ class NeuralNetwork():
         '''
         self.X = X
         self.forward_propagation()  # performs a foward propagation
+
         return self.params["b2"]  # output
 
     def accuracy(self, Y):
@@ -244,6 +244,7 @@ class NeuralNetwork():
         sum = 0.0
         for i in range(self.layers[2]):
             sum += abs(Y[i] - self.params["b2"][i])
+
         return 1 - (sum/self.layers[2])
 
     def test(self, test_X, test_Y):
@@ -254,13 +255,13 @@ class NeuralNetwork():
         sum = 0.0  # sum of accuracies
         length = len(test_X)
         for i in range(length):
-            # print(test_Y[i]) #DELETE
             prediction_vector = self.predict(test_X[i])  # predict
-            # print(np.max(prediction_vector), prediction_vector) #DELETE
             index = prediction_vector.tolist().index(np.max(prediction_vector))
             prediction = utils.get_letter_from_index(index)  # letter predicted
+
             index = test_Y[i].tolist().index(np.max(test_Y[i]))
             expected = utils.get_letter_from_index(index)  # letter expected
+
             if expected == prediction:
                 match_counter += 1
 

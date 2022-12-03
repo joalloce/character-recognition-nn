@@ -57,8 +57,9 @@ def op_test():
 def main():
     if len(sys.argv) == 1:
         print("start: start a new training")
-        print("continue: continue training from the last iteration done. Require the weights on folder tmp")
-        print("test: test the NN. Require the weights on folder tmp")
+        print("continue: continue training from the last iteration done.")
+        print("Require the weights on folder tmp/ and the numIteration.txt with the number of the last iteration.")
+        print("test: test the NN. Require the weights on folder tmp/.")
     else:
         op = sys.argv[1]
         if op == "continue":
@@ -69,7 +70,7 @@ def main():
             op_test()
         else:
             print("Please type start, continue or test.")
-            print(op, "is not valid op.")
+            print(op, "is not a valid op.")
 
 
 if __name__ == '__main__':
