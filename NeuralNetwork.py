@@ -9,6 +9,12 @@ weight_range = 0.6
 
 
 class NeuralNetwork():
+    '''
+    Neural network
+    default values:
+     - iterations = 100
+     - hidden layer nodes = 250
+    '''
 
     def __init__(self, layers=[2500, 250, 10], iterations=100) -> None:
         self.iterations = iterations
