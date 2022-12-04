@@ -37,8 +37,9 @@ You can run the `python main.py test` command by creating a <i>tmp/</i> folder a
 
 ## Results
 
-After three trainings, with different numbers of iterations, the results are the following:
+After 4 trainings, with different numbers of iterations, the results are the following:
 
-1. 50 iterations. Predicted 80 of 100 tests
-2. 100 iterations. Predicted 86 of 100 tests
-3. 150 iterations. Predicted 87 of 100 tests
+1. 50 iterations. Predicted 80 of 100 tests.
+2. 100 iterations. Predicted 86 of 100 tests.
+3. 150 iterations. Predicted 87 of 100 tests.
+4. 150 iterations. Predicted 86 of 100 tests.
